@@ -5,14 +5,14 @@ function submitHandler(event) {
   console.log("::: Form Submitted :::");
   let formText = document.getElementById("name").value;
   if (validUrl.isUri(formText)) {
-    _postData("http://localhost:8080/article", formText);
+    dataPost("http://localhost:8080/article", formText);
   } else {
     document.getElementById("error-message").innerHTML =
       "Sorry, this is not a valid URL.";
   }
 }
 
-const _postData = async (path, input_url) => {
+const dataPost = async (path, input) => {
   await fetch(path, {
     method: "POST",
     cache: "no-cache",
@@ -20,7 +20,7 @@ const _postData = async (path, input_url) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ text: input_url }),
+    body: JSON.stringify({ text: input }),
   })
     .then((res) => {
       console.log(res);
