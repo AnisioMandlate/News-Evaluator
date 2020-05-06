@@ -30,19 +30,19 @@
       </section>
       <section class="url-results">
         <ul>
-          <li>
+          <li class="list">
             <h3>Text Polarity:</h3>
             <p id="polarity"></p>
             <h4>Polarity Confidence:</h4>
             <p id="polarity_confidence"></p>
           </li>
-          <li>
+          <li class="list">
             <h3>Text Subjectivity:</h3>
             <p id="subjectivity"></p>
             <h4>Subjectivity Confidence:</h4>
             <p id="subjectivity_confidence"></p>
           </li>
-          <li>
+          <li class="list">
             <h3>Text Excerpt:</h3>
             <p id="excerpt"></p>
           </li>
@@ -52,5 +52,14 @@
     <footer>
       Copyright © 2020. All Rights Reserved
     </footer>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
   </body>
 </html>
