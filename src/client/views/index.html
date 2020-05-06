@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article News Evaluator</title>
+  </head>
+  <body>
+    <main>
+      <h1>News Article Evaluator Through Natural Language Processing</h1>
+      <section>
+        <form class="" onsubmit="return Client.handleSubmit(event)">
+          <input
+            id="name"
+            name="input"
+            placeholder="https://www.news-source/news-article"
+            type="url"
+            value=""
+          />
+          <input
+            id="callapi"
+            name=""
+            onclick="return Client.handleSubmit(event)"
+            onsubmit="return Client.handleSubmit(event)"
+            type="submit"
+            value="submit"
+          />
+        </form>
+        <div id="error"></div>
+      </section>
+      <section class="url-results">
+        <ul>
+          <li>
+            <h3>Text Polarity:</h3>
+            <p id="polarity"></p>
+            <h4>Polarity Confidence:</h4>
+            <p id="polarity_confidence"></p>
+          </li>
+          <li>
+            <h3>Text Subjectivity:</h3>
+            <p id="subjectivity"></p>
+            <h4>Subjectivity Confidence:</h4>
+            <p id="subjectivity_confidence"></p>
+          </li>
+          <li>
+            <h3>Text Excerpt:</h3>
+            <p id="excerpt"></p>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      Copyright © 2020. All Rights Reserved
+    </footer>
+  </body>
+</html>
