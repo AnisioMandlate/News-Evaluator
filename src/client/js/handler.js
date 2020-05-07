@@ -1,4 +1,5 @@
 var validUrl = require("valid-url");
+
 function submitHandler(event) {
   event.preventDefault();
 
@@ -7,12 +8,12 @@ function submitHandler(event) {
   if (validUrl.isUri(formText)) {
     dataPost("http://localhost:8080/article", formText);
   } else {
-    document.getElementById("error-message").innerHTML =
+    document.getElementById("error").innerHTML =
       "Sorry, this is not a valid URL.";
   }
 }
 
-const dataPost = async (path, input) => {
+const dataPost = async (path, input_url) => {
   await fetch(path, {
     method: "POST",
     cache: "no-cache",
@@ -20,7 +21,7 @@ const dataPost = async (path, input) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ text: input }),
+    body: JSON.stringify({ text: input_url }),
   })
     .then((res) => {
       console.log(res);

@@ -10,24 +10,12 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   mode: "production",
-  optimization: [new TerserPlugin({}), new OptimizeCssAssetsPlugin({})],
-  module: {
-    rules: [
-      {
-        test: "/.js$",
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-      {
-        test: /.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ],
-      },
-    ],
+  output: {
+    libraryTarget: "var",
+    library: "Client",
+  },
+  optimization: {
+    minimizer: [new TerserPlugin({}), new OptimizeCssAssetsPlugin({})],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -45,4 +33,22 @@ module.exports = {
     }),
     new WorkboxPlugin.GenerateSW(),
   ],
+  module: {
+    rules: [
+      {
+        test: "/.js$",
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+      {
+        test: /.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          //   "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
 };

@@ -25,9 +25,10 @@ app.use(
 app.use(express.static("dist"));
 
 let port = 8080;
+
 app.listen(port);
 {
-  console.log("App listening on port 8080!");
+  console.log(`App listening on port ${port}!`);
 }
 console.log(`__dirname: ${__dirname}`);
 app.get("/", function(req, res) {
