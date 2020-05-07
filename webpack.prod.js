@@ -33,6 +33,7 @@ module.exports = {
     }),
     new WorkboxPlugin.GenerateSW(),
   ],
+
   module: {
     rules: [
       {
